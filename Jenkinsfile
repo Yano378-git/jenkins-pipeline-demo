@@ -29,9 +29,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying project to Jenkins workspace..."
-                // Workspace Jenkins menjadi tempat “deploy” web
                 sh 'mkdir -p $WORKSPACE/deploy'
-                sh 'cp -r * $WORKSPACE/deploy/'
+                // Salin semua file/folder kecuali folder deploy sendiri
+                sh 'find . -maxdepth 1 -mindepth 1 ! -name "deploy" -exec cp -r {} deploy/ \\;'
             }
         }
 
