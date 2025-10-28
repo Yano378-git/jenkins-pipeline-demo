@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Kalau perlu, bisa tambahkan credential GitHub
-        // GITHUB_CREDENTIALS = 'github-token'
-    }
-
     stages {
         stage('Checkout') {
             steps {
